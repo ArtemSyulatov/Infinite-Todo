@@ -1,17 +1,9 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
-import store from "../store/store";
 const Todo = observer(({ task }) => {
-  console.log(task);
   return (
     <div>
-      <div
-        className="Task"
-        onClick={(e) => {
-          e.stopPropagation();
-          task.addChild({ text: "asdasd", title: "w31245" });
-        }}
-      >
+      <div className="Task">
         <div className="test">
           {task.text}
           <input
@@ -22,10 +14,18 @@ const Todo = observer(({ task }) => {
             }}
           />
           <button
+            onClick={(e) => {
+              e.stopPropagation();
+              task.addChild({ text: task.text, title: "w31245" });
+            }}
+          >
+            +
+          </button>
+          <button
             className="RemoveBtn"
             onClick={(event) => {
-              console.log(event);
-              store.removeTask(task.id);
+              event.stopPropagation();
+              task.remove(task.id);
             }}
           >
             x

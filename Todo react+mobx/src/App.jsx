@@ -5,7 +5,6 @@ import { observer } from "mobx-react-lite";
 import Todo from "./components/Todo.jsx";
 const App = observer(() => {
   const { todo } = useStore();
-  console.log(todo);
   const [text, setText] = useState("");
   return (
     <div className="main">
@@ -25,7 +24,7 @@ const App = observer(() => {
       </button>
       <div className="Tasks">
         {todo.tasks.map((task) => {
-          return <Todo key={task.id} task={task} />;
+          return <Todo key={task.id} task={task} text={text} />;
         })}
       </div>
     </div>
