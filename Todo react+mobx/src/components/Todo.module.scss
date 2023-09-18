@@ -1,8 +1,37 @@
 .Task {
   background-color: beige;
   padding: 20px;
-  .inputText {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; 
+  .input {
     color: black;
   }
-} 
+  .taskText {
+  }
+  button {
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px; 
+  }
+  .rightSide{
+    display: flex;
+    gap:4px;
+  }
+  .leftSide{
+    display: flex;
+    gap:4px;
+    
+  }
 
+}
+.Childs{ 
+  margin-left: 20px;
+}
+.icon_active{
+  transform: rotate(90deg);
+}

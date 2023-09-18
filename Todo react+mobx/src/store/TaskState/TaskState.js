@@ -8,6 +8,7 @@ export class TaskState {
   childs = [];
   isChecked = false;
   inputToggle = true;
+  isChildsOpened = false;
   constructor({ text, title }, parent) {
     this.parent = parent;
     this.id = Math.random();
@@ -15,6 +16,7 @@ export class TaskState {
     this.title = title;
     makeObservable(this, {
       inputToggle: observable,
+      isChildsOpened:observable,
       text: observable,
       title: observable,
       childs: observable,
@@ -25,6 +27,7 @@ export class TaskState {
       remove: action,
       removeTask: action,
       setText:action,
+      openChilds:action,
     });
   }
   setIsChecked() {
@@ -44,5 +47,8 @@ export class TaskState {
   }
   setText(text){
     this.text = text
+  }
+  openChilds(){
+    this.isChildsOpened = !this.isChildsOpened
   }
 }

@@ -4,5 +4,11 @@
   padding: 2rem;
   text-align: center;
 }
-.main{
+.main {
+  width: 500px;
+  height: 500px;
+}
+.Tasks {
+  display: flex;
+  flex-direction: column;
 }
