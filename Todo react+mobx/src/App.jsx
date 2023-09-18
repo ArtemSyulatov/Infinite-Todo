@@ -1,44 +1,31 @@
 import { useState } from "react";
 import "./App.css";
-import store from "./store.js";
-import { toJS } from "mobx";
+import { useStore } from "./store/store.js";
 import { observer } from "mobx-react-lite";
-
+import Todo from "./components/Todo.jsx";
 const App = observer(() => {
+  const { todo } = useStore();
+  console.log(todo);
   const [text, setText] = useState("");
-  let { task, addTask, addChilds, removeTask } = store;
-  let arrayOfTasks = toJS(task);
-  console.log(arrayOfTasks);
   return (
-    <div>
+    <div className="main">
       <textarea
         placeholder="write title of task"
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
       <button
+        className="addTaskBtn"
         onClick={() => {
-          addTask(Math.floor(Math.random() * 1000), text);
+          todo.addTask(Math.floor(Math.random() * 100), text);
           setText("");
         }}
       >
         Добавить задачу
       </button>
-      <div>
-        {arrayOfTasks.map((e, index) => {
-          return (
-            <div key={index}>
-              {e.text}
-              <button
-                onClick={() => {
-                  removeTask(e.id);
-                  console.log(e);
-                }}
-              >
-                x
-              </button>
-            </div>
-          );
+      <div className="Tasks">
+        {todo.tasks.map((task) => {
+          return <Todo key={task.id} task={task} />;
         })}
       </div>
     </div>
