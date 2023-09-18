@@ -7,32 +7,42 @@ export class TaskState {
   parent;
   childs = [];
   isChecked = false;
-  constructor({ text, title },  parent) {
-    this.parent = parent; 
+  inputToggle = false;
+  constructor({ text, title }, parent) {
+    this.parent = parent;
     this.id = Math.random();
     this.text = text;
     this.title = title;
     makeObservable(this, {
-      text: observable, 
+      inputToggle: observable,
+      text: observable,
       title: observable,
       childs: observable,
       isChecked: observable,
+      toggleInput: action,
       setIsChecked: action,
       addChild: action,
       remove: action,
       removeTask: action,
+      setText:action,
     });
   }
   setIsChecked() {
     this.isChecked = !this.isChecked;
   }
   addChild({ text, title }) {
-    this.childs.push(new TaskState({ text, title },this));
+    this.childs.push(new TaskState({ text, title }, this));
   }
   remove() {
-    this.parent.removeTask(this.id); 
+    this.parent.removeTask(this.id);
   }
   removeTask(id) {
     this.childs = this.childs.filter((elem) => elem.id !== id);
+  }
+  toggleInput() {
+    this.inputToggle = !this.inputToggle;
+  }
+  setText(text){
+    this.text = text
   }
 }

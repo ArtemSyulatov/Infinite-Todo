@@ -5,7 +5,31 @@ const Todo = observer(({ task }) => {
     <div>
       <div className="Task">
         <div className="test">
-          {task.text}
+          <div className="inputText">
+            {task.inputToggle ? (
+              <input
+                onKeyDown={(e) => {
+                  if ((e.code == "Enter")) {
+                    task.toggleInput();
+                  }
+                }}
+                type="text"
+                onChange={(e) => {
+                  task.setText(e.target.value);
+                }}
+                value={task.text}
+              />
+            ) : (
+              <div
+                onClick={() => {
+                  task.toggleInput();
+                }}
+              >
+                {task.text}
+              </div>
+            )}
+          </div>
+
           <input
             type="checkbox"
             checked={task.isChecked}
