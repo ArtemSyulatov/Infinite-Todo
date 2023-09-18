@@ -2,6 +2,7 @@ import { observer } from "mobx-react-lite";
 import React from "react";
 import classes from "./Todo.module.scss";
 import icon from "../assets/icon_sloy.svg";
+import TaskInput from "./taskInput";
 const Todo = observer(({ task }) => {
   return (
     <>
@@ -15,39 +16,7 @@ const Todo = observer(({ task }) => {
             className={task.isChildsOpened ? null : classes.icon_active}
           />
           <div>
-            {task.inputToggle ? (
-              <input
-                onKeyDown={(e) => {
-                  if (e.code == "Enter" && e.target.value !== "") {
-                    task.toggleInput();
-                  }
-                }}
-                type="text"
-                onChange={(e) => {
-                  task.setText(e.target.value);
-                }}
-                onBlur={(e) => {
-                  if (e.target.value !== "") {
-                    task.toggleInput();
-                    e.target.style.backgroundColor = "white";
-                  }
-                }}
-                onFocus={(e) => {
-                  e.target.style.backgroundColor = "#bcdbf7";
-                }}
-                value={task.text}
-                placeholder="Task description"
-              />
-            ) : (
-              <div
-                onClick={() => {
-                  task.toggleInput();
-                }}
-                className={classes.taskText}
-              >
-                {task.text}
-              </div>
-            )}
+          <TaskInput task={task}/>
           </div>
         </div>
         <div className={classes.rightSide}>
