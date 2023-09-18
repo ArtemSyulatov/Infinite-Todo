@@ -4,7 +4,6 @@ const Todo = observer(({ task }) => {
   return (
     <div>
       <div className="Task">
-        <div className="test">
           <div className="inputText">
             {task.inputToggle ? (
               <input
@@ -40,7 +39,7 @@ const Todo = observer(({ task }) => {
           <button
             onClick={(e) => {
               e.stopPropagation();
-              task.addChild({ text: task.text, title: "w31245" });
+              task.addChild({ text: '', title: "w31245" });
             }}
           >
             +
@@ -61,7 +60,6 @@ const Todo = observer(({ task }) => {
           </div>
         </div>
       </div>
-    </div>
   );
 });
 

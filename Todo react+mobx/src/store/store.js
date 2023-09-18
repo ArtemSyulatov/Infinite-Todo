@@ -20,7 +20,7 @@ class Store {
     );
   };
   removeTask = (id) => {
-    this.tasks = this.tasks.filter((elem) => elem.id !== id);
+    this.tasks = this.tasks.filter((task) => task.id !== id);
   };
 }
 
