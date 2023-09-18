@@ -7,7 +7,7 @@ export class TaskState {
   parent;
   childs = [];
   isChecked = false;
-  inputToggle = false;
+  inputToggle = true;
   constructor({ text, title }, parent) {
     this.parent = parent;
     this.id = Math.random();

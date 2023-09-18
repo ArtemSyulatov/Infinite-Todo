@@ -7,12 +7,7 @@ const App = observer(() => {
   const { todo } = useStore();
   const [text, setText] = useState("");
   return (
-    <div className="main">
-      <textarea
-        placeholder="write title of task"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-      />
+    <div className="main"> 
       <button
         className="addTaskBtn"
         onClick={() => {
@@ -20,7 +15,7 @@ const App = observer(() => {
           setText("");
         }}
       >
-        Добавить задачу
+        Add Task
       </button>
       <div className="Tasks">
         {todo.tasks.map((task) => {
