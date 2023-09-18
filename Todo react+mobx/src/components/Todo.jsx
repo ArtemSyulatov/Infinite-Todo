@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
 import classes from "./Todo.module.scss"; 
-import Buttons from "./Buttons";
+import RigthSide from "./RigthSide";
 import Childs from "./Childs";
 import LeftSide from "./LeftSide";
 const Todo = observer(({ task }) => {
@@ -9,7 +9,7 @@ const Todo = observer(({ task }) => {
     <div>
       <div className={classes.Task}>
       <LeftSide task={task}/>
-        <Buttons task={task} />
+        <RigthSide task={task} />
       </div>
       <Childs task={task} />
       </div>

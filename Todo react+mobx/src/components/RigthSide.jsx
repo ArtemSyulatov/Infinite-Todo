@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react';
 import classes from "./Todo.module.scss";
-const Buttons = observer((task) => {
+const RigthSide = observer((task) => {
     return (
         <div className={classes.rightSide}>
             <input
@@ -32,4 +32,4 @@ const Buttons = observer((task) => {
     );
 });
 
-export default Buttons;
+export default RigthSide;
