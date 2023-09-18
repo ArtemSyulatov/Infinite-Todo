@@ -3,6 +3,7 @@ import React from "react";
 import classes from "./Todo.module.scss";
 import icon from "../assets/icon_sloy.svg";
 import TaskInput from "./taskInput";
+import Buttons from "./Buttons";
 const Todo = observer(({ task }) => {
   return (
     <>
@@ -19,32 +20,7 @@ const Todo = observer(({ task }) => {
           <TaskInput task={task}/>
           </div>
         </div>
-        <div className={classes.rightSide}>
-          <input
-            type="checkbox"
-            checked={task.isChecked}
-            onChange={() => {
-              task.setIsChecked();
-            }}
-          />
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              task.addChild({ text: "", title: "" });
-            }}
-          >
-            +
-          </button>
-          <button
-            className="RemoveBtn"
-            onClick={(event) => {
-              event.stopPropagation();
-              task.remove(task.id);
-            }}
-          >
-            x
-          </button>
-        </div>
+        <Buttons task={task} />
       </div>
       <div className={classes.Childs}>
         {task.isChildsOpened
