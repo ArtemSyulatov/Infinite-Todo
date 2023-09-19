@@ -29,6 +29,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background:#333 url(https://static.tumblr.com/maopbtg/a5emgtoju/inflicted.png) repeat;
 }
 
 h1 {
