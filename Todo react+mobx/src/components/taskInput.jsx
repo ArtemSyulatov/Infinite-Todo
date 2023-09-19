@@ -8,7 +8,7 @@ const TaskInput = observer((task) => {
         <input
           onKeyDown={(e) => {
             if (e.code == "Enter" && e.target.value !== "") {
-                task.task.toggleInput();
+              task.task.toggleInput();
             }
           }}
           type="text"
@@ -17,12 +17,12 @@ const TaskInput = observer((task) => {
           }}
           onBlur={(e) => {
             if (e.target.value !== "") {
-                task.task.toggleInput();
+              task.task.toggleInput();
               e.target.style.backgroundColor = "white";
             }
           }}
           onFocus={(e) => {
-            e.target.style.backgroundColor = "#bcdbf7";
+            e.target.style.backgroundColor = "#bcdbf7"; // TODO: сделать изменение цвета по другому
           }}
           value={task.task.text}
           placeholder="Task description"

@@ -2,7 +2,7 @@ import React from "react";
 import TaskInput from "./taskInput";
 import { observer } from "mobx-react-lite";
 import icon from "../assets/icon_sloy.svg";
-import classes from "./Todo.module.scss"; 
+import classes from "./Todo.module.scss";
 const LeftSide = observer((task) => {
   return (
     <div className={classes.leftSide}>
