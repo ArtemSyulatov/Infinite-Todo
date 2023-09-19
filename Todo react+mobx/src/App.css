@@ -7,8 +7,17 @@
 .main {
   width: 500px;
   height: 500px;
+  background-color: antiquewhite;
 }
 .Tasks {
   display: flex;
   flex-direction: column;
+}
+.App{
+  display: flex;
+}
+.tasktext{
+  background-color: antiquewhite;
+  width: 500px;
+  height: 500px;
 }

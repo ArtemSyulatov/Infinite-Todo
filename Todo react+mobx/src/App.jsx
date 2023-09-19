@@ -9,6 +9,7 @@ const App = observer(() => {
   const { todo } = useStore();
   const [text, setText] = useState("");
   return (
+    <div className="App">
     <div className="main"> 
       <button
         className="addTaskBtn"
@@ -23,8 +24,9 @@ const App = observer(() => {
         {todo.tasks.map((task) => {
           return <Todo key={task.id} task={task} text={text} />;
         })}
-      </div>
-      <div className='tasktext'>
+      </div> 
+    </div>
+    <div className='tasktext'>
         <TaskText task />
       </div>
     </div>
