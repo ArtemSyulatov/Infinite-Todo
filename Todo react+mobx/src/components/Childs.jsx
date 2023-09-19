@@ -6,10 +6,10 @@ const Childs = observer((task) => {
   return (
     <div className={classes.Childs}>
       {task.task.isChildsOpened
-        ? null
-        : task.task.childs.map((element) => {
+        ? task.task.childs.map((element) => {
             return <Todo key={element.id} task={element} />;
-          })}
+          })
+        : null}
     </div>
   );
 });

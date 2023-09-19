@@ -3,6 +3,8 @@ import "./App.css";
 import { useStore } from "./store/store.js";
 import { observer } from "mobx-react-lite";
 import Todo from "./components/Todo.jsx";
+import TaskText from "./components/TaskText.jsx";
+
 const App = observer(() => {
   const { todo } = useStore();
   const [text, setText] = useState("");
@@ -21,6 +23,9 @@ const App = observer(() => {
         {todo.tasks.map((task) => {
           return <Todo key={task.id} task={task} text={text} />;
         })}
+      </div>
+      <div className='tasktext'>
+        <TaskText task />
       </div>
     </div>
   );

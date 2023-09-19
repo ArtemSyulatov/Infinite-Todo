@@ -4,8 +4,9 @@ import React from "react";
 const TaskText = observer((task) => {
   console.log(task);
   return (
-    <div>
-      <textarea>asd</textarea>
+    <div> 
+      <p></p>
+      <textarea></textarea>
     </div>
   );
 });

@@ -7,10 +7,7 @@ const LeftSide = observer((task) => {
   return (
     <div className={classes.leftSide}>
       <img
-        src={icon}
-        onClick={() => {
-          task.task.openChilds();
-        }}
+        src={icon} 
         className={task.task.isChildsOpened ? null : classes.icon_active}
       />
       <TaskInput task={task.task} />

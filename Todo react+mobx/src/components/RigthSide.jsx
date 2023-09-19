@@ -8,7 +8,8 @@ const RigthSide = observer((task) => {
         type="checkbox"
         checked={task.task.isChecked}
         onChange={() => {
-          task.setIsChecked();
+          task.task.setIsChecked();
+          task.task.openChilds();
         }}
       />
       <button
