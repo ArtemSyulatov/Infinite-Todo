@@ -22,6 +22,7 @@ class Store {
   removeTask = (id) => {
     this.tasks = this.tasks.filter((task) => task.id !== id);
   };
+    
 }
 
 const store = new Store();

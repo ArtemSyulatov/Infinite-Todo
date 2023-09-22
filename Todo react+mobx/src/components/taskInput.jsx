@@ -30,7 +30,7 @@ const TaskInput = observer((task) => {
       ) : (
         <div
           onClick={() => {
-            task.toggleInput();
+            task.task.toggleInput();
           }}
           className={classes.taskText}
         >

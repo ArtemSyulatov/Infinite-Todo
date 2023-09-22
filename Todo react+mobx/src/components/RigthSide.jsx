@@ -8,13 +8,12 @@ const RigthSide = observer((task) => {
         type="checkbox"
         checked={task.task.isChecked}
         onChange={() => {
-          task.task.setIsChecked();
-          
+          task.task.setIsChecked(); 
         }}
       />
       <button
-        onClick={(e) => {
-          e.stopPropagation();
+        onClick={(event) => {
+          event.stopPropagation();
           task.task.addChild({ text: "", title: "" });
         }}
       >
@@ -29,6 +28,9 @@ const RigthSide = observer((task) => {
       >
         x
       </button>
+      <button className="selectBtn" onClick={(e)=>{
+        console.log('xui')
+      }}>Select</button> {/*TODO Кнопка для выбора текста в текстарию*/}
     </div>
   );
 });

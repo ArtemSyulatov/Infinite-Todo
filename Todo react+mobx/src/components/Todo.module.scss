@@ -13,21 +13,16 @@
   button {
     cursor: pointer;
     margin-top: 20px;
-    padding-left: 24px;
-    padding-right: 24px;
+    margin-left: 5px;
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-    color: #fff;
+    font-size: 16px;
     text-shadow: 0px -1px 0px #000000;
     -webkit-border-radius: 8px;
     border-radius: 8px;
-    border-top: 1px solid #fff;
     -webkit-box-shadow: 0px 2px 14px #000;
     box-shadow: 0px 2px 14px #000;
-    background-color: #62add6;
-    background-image: url(https://static.tumblr.com/maopbtg/ZHLmgtok7/button.png);
-    background-repeat: repeat-x;
+    width: 60px;
+    height: 20px;
   }
   button:active {
     zoom: 1;

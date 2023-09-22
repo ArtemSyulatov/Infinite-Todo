@@ -28,6 +28,7 @@ export class TaskState {
       removeTask: action,
       setText:action,
       openChilds:action,
+      setUserTitle:action,
     });
   }
   setIsChecked() {
@@ -50,5 +51,8 @@ export class TaskState {
   }
   openChilds(){
     this.isChildsOpened = !this.isChildsOpened
+  }
+  setUserTitle(title){
+    this.title = title
   }
 }

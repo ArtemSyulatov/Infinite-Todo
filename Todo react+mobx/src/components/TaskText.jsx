@@ -1,12 +1,13 @@
 import { observer } from "mobx-react-lite";
-import React from "react"; 
+import React, { useContext, useState } from "react"; 
 
-const TaskText = observer((task) => {
-  console.log(task);
+const TaskText = observer((props) => {
   return (
     <div> 
-      <p>Здесь будет тайтл задачи</p>
-      <textarea></textarea>
+        <p>{props.title}</p>
+      <textarea onChange={(e)=>{
+          
+      }}></textarea>
     </div>
   );
 });
