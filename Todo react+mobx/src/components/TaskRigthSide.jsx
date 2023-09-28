@@ -27,7 +27,6 @@ const TaskRigthSide = observer((props) => {
                 onClick={(event) => {
                     event.stopPropagation();
                     props.task.remove(props.id);
-                    props.decrement()
                 }}
             >
                 x

@@ -17,7 +17,8 @@
     width: 500px;
     height: 500px;
     background-color: antiquewhite;
-    overflow-y: scroll;
+    overflow: hidden;
+
 }
 
 .Tasks {
@@ -65,4 +66,9 @@ p {
     margin-top: 10px;
     border: black 1px solid;
     cursor: pointer;
+
+
+}
+.overFlowY{
+    overflow-y: scroll;
 }

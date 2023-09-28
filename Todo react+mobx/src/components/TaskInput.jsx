@@ -14,7 +14,7 @@ const TaskInput = observer((task) => {
                     }}
                     type="text"
                     onChange={(e) => {
-                        task.task.setText(e.target.value);
+                        task.task.setText(e.target.value.slice(0,15));
                     }}
                     onBlur={(e) => {
                         if (e.target.value !== "") {
