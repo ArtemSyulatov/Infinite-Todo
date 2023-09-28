@@ -1,12 +1,17 @@
 import React from "react";
 import {observer} from "mobx-react-lite";
 import classes from "./Todo.module.scss";
+import {TextField} from "@mui/material";
 
 const TaskInput = observer((task) => {
     return (
         <div>
             {task.task.inputToggle ? (
-                <input
+                <TextField
+                    size='small'
+                    fullWidth
+                    label="Task description"
+                    id="fullWidth"
                     onKeyDown={(e) => {
                         if (e.code == "Enter" && e.target.value !== "") {
                             task.task.toggleInput();
@@ -23,10 +28,9 @@ const TaskInput = observer((task) => {
                         }
                     }}
                     onFocus={(e) => {
-                        e.target.style.backgroundColor = "#bcdbf7";
+                        e.target.style.backgroundColor = "wheat";
                     }}
                     value={task.task.text}
-                    placeholder="Task description"
                 />
             ) : (
                 <div

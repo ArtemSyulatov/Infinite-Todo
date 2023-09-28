@@ -3,13 +3,17 @@ import {useStore} from "./store/store.js";
 import {observer} from "mobx-react-lite";
 import Todo from "./components/Todo.jsx";
 import TaskInfo from "./components/TaskInfo.jsx";
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, useState} from "react";
 
 const App = observer(() => {
-    //TODO: при открытии дочерних тасков и при условии что они не влазят в див, скролл также должен появлятся
     const {todo} = useStore();
+    const [forceUpdare,setForceUpdate] = useState(false)
     const divHeight = useRef(null)
+    const force = () =>{
+        setForceUpdate(!forceUpdare)
+    }
     useEffect(() => {
+        console.log(divHeight.current.clientHeight)
         todo.setHeight(divHeight.current.clientHeight)
     })
     return (
@@ -27,7 +31,7 @@ const App = observer(() => {
                 </button>
                 <div className="Tasks" ref={divHeight}>
                     {todo.tasks.map((task) => {
-                        return <Todo key={task.id} task={task}/>;
+                        return <Todo force={force} key={task.id} task={task}/>;
                     })}
                 </div>
             </div>

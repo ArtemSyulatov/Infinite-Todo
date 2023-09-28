@@ -9,6 +9,7 @@ const TaskInfo = observer(() => {
   }
   return (
     <div>
+
       <p>{todo.selectedTask?.text}</p>
       <textarea value = {todo.selectedTask?.title} onChange={(e) => {
           todo.selectedTask.setTitle(e.target.value)

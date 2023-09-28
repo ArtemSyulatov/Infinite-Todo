@@ -11,6 +11,7 @@ const TaskLeftSide = observer((task) => {
                 src={icon}
                 onClick={() => {
                     task.task.openChilds();
+                    task.force()
                 }}
                 className={task.task.isChildsOpened ? null : classes.icon_active}
             />

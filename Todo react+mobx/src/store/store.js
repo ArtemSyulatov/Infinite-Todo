@@ -7,11 +7,9 @@ class Store {
     tasks = [];
     selectedTask;
     taskHeight;
-
     constructor() {
         makeAutoObservable(this);
     }
-
     addTask = (id, text, childs = []) => {
         this.tasks.push(
             new TaskState(

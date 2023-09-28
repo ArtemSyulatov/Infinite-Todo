@@ -4,18 +4,19 @@ import classes from "./Todo.module.scss";
 import TaskRigthSide from "./TaskRigthSide.jsx";
 import TodoChilds from "./TodoChilds.jsx";
 import TaskLeftSide from "./TaskLeftSide.jsx";
+import {ListItemText} from "@mui/material";
 
-const Todo = observer(({task}) => {
+const Todo = observer(({task,force}) => {
     return (
-        <div className={classes.todo}>
+        <ListItemText  className={classes.todo}>
             <div className={classes.tasks}>
                 <div className={classes.Task}>
-                    <TaskLeftSide task={task}/>
-                    <TaskRigthSide  task={task}/>
+                    <TaskLeftSide force={force} task={task}/>
+                    <TaskRigthSide force={force} task={task}/>
                 </div>
                 <TodoChilds task={task}/>
             </div>
-        </div>
+        </ListItemText>
     );
 });
 
