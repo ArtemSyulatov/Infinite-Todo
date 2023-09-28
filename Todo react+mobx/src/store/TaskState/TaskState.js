@@ -16,7 +16,7 @@ export class TaskState {
     this.title = title;
     makeObservable(this, {
       inputToggle: observable,
-      isChildsOpened:observable,
+      isChildsOpened: observable,
       text: observable,
       title: observable,
       childs: observable,
@@ -26,9 +26,9 @@ export class TaskState {
       addChild: action,
       remove: action,
       removeTask: action,
-      setText:action,
-      openChilds:action,
-      setUserTitle:action,
+      setText: action,
+      openChilds: action,
+      setTitle:action, 
     });
   }
   setIsChecked() {
@@ -46,13 +46,13 @@ export class TaskState {
   toggleInput() {
     this.inputToggle = !this.inputToggle;
   }
-  setText(text){
-    this.text = text
+  setText(text) {
+    this.text = text;
   }
-  openChilds(){
-    this.isChildsOpened = !this.isChildsOpened
-  }
-  setUserTitle(title){
+  openChilds() {
+    this.isChildsOpened = !this.isChildsOpened;
+  } 
+  setTitle(title){
     this.title = title
   }
 }

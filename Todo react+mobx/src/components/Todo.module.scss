@@ -1,15 +1,19 @@
 .Task {
   background-color: beige;
+  margin-left: 20px;
   padding: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+
   .input {
     color: black;
   }
+
   .taskText {
   }
+
   button {
     cursor: pointer;
     margin-top: 20px;
@@ -24,28 +28,34 @@
     width: 60px;
     height: 20px;
   }
+
   button:active {
     zoom: 1;
     filter: alpha(opacity=80);
     opacity: 0.8;
   }
+
   button:focus {
     zoom: 1;
     filter: alpha(opacity=80);
     opacity: 0.8;
   }
+
   .rightSide {
     display: flex;
     gap: 4px;
   }
+
   .leftSide {
     display: flex;
     gap: 4px;
   }
 }
+
 .Childs {
   margin-left: 20px;
 }
+
 .icon_active {
   transform: rotate(90deg);
 }

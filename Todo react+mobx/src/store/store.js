@@ -4,6 +4,7 @@ import { MobXProviderContext } from "mobx-react";
 import { useContext } from "react";
 class Store {
   tasks = [];
+  selectedTask;
   constructor() {
     makeAutoObservable(this);
   }
@@ -13,6 +14,7 @@ class Store {
         {
           id,
           text,
+          title:'',
           childs,
         },
         this
@@ -22,7 +24,9 @@ class Store {
   removeTask = (id) => {
     this.tasks = this.tasks.filter((task) => task.id !== id);
   };
-    
+  setSelectedTask = (task) => {
+    this.selectedTask = task;
+  };
 }
 
 const store = new Store();
