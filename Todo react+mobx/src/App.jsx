@@ -9,13 +9,14 @@ const App = observer(() => {
     //TODO: при открытии дочерних тасков и при условии что они не влазят в див, скролл также должен появлятся
     const {todo} = useStore();
     const divHeight = useRef(null)
-    useEffect(()=>{
+    useEffect(() => {
         todo.setHeight(divHeight.current.clientHeight)
     })
     return (
         <div className="App">
             <div
-                className={`main ${todo.taskHeight > 400 ? 'overFlowY' : '' }`}>
+                className={`main ${todo.taskHeight > 400 ? 'overFlowY' : ''}`}>
+                <p>Todo React/Mobx</p>
                 <button
                     className="addTaskBtn"
                     onClick={() => {
@@ -26,7 +27,7 @@ const App = observer(() => {
                 </button>
                 <div className="Tasks" ref={divHeight}>
                     {todo.tasks.map((task) => {
-                        return <Todo  key={task.id} task={task}/>;
+                        return <Todo key={task.id} task={task}/>;
                     })}
                 </div>
             </div>
