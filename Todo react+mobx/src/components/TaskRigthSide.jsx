@@ -34,6 +34,7 @@ const TaskRigthSide = observer((props) => {
                 onClick={(event) => {
                     event.stopPropagation();
                     props.task.remove(props.id);
+                    todo.setSelectedTask(null)
                 }}
             >
                 <AiFillDelete/>
