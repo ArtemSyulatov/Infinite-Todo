@@ -1,10 +1,10 @@
 import React from "react";
-import TaskInput from "./TaskInput.jsx";
 import {observer} from "mobx-react-lite";
-import icon from "../assets/icon_sloy.svg";
-import classes from "./Todo.module.scss";
+import icon from "../../../assets/icon_sloy.svg";
+import classes from "../Todo.module.scss";
+import {TaskInput} from "./TaskInput/index.js";
 
-const TaskLeftSide = observer((task) => {
+export const Icon = observer((task) => {
     return (
         <div className={classes.leftSide}>
             <img
@@ -20,4 +20,3 @@ const TaskLeftSide = observer((task) => {
     );
 });
 
-export default TaskLeftSide;

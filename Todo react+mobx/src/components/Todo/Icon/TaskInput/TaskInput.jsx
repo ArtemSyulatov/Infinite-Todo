@@ -1,9 +1,9 @@
 import React from "react";
 import {observer} from "mobx-react-lite";
-import classes from "./Todo.module.scss";
+import classes from "../../Todo.module.scss";
 import {TextField} from "@mui/material";
 
-const TaskInput = observer((task) => {
+export const TaskInput = observer((task) => {
     return (
         <div>
             {task.task.inputToggle ? (
@@ -46,4 +46,3 @@ const TaskInput = observer((task) => {
     );
 });
 
-export default TaskInput;

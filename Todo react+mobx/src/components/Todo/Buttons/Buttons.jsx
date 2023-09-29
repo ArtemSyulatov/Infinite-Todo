@@ -1,7 +1,7 @@
 import {observer} from "mobx-react-lite";
 import React from "react";
-import classes from "./Todo.module.scss";
-import {useStore} from "../store/store.js";
+import classes from "../Todo.module.scss";
+import {useStore} from "../../../store/store.js";
 import {Button, ToggleButton} from "@mui/material";
 import {
     AiFillDelete, AiOutlineCheckCircle,
@@ -9,7 +9,7 @@ import {
     AiOutlineSelect
 } from "react-icons/ai";
 
-const TaskRigthSide = observer((props) => {
+export const Buttons = observer((props) => {
     const {todo} = useStore();
     return (
         <div className={classes.rightSide}>
@@ -47,4 +47,3 @@ const TaskRigthSide = observer((props) => {
     );
 });
 
-export default TaskRigthSide;

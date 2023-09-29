@@ -1,9 +1,9 @@
 import "./App.css";
 import {useStore} from "./store/store.js";
 import {observer} from "mobx-react-lite";
-import Todo from "./components/Todo.jsx";
-import TaskInfo from "./components/TaskInfo.jsx";
 import {useEffect, useRef, useState} from "react";
+import {TaskInfo} from "./components/TaskInfo/index.js";
+import {Todo} from "./components/Todo/index.js";
 
 const App = observer(() => {
     const {todo} = useStore();
@@ -13,7 +13,6 @@ const App = observer(() => {
         setForceUpdate(!forceUpdare)
     }
     useEffect(() => {
-        console.log(divHeight.current.clientHeight)
         todo.setHeight(divHeight.current.clientHeight)
     })
     return (

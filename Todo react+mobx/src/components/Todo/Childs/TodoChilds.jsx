@@ -1,9 +1,9 @@
 import React from "react";
 import {observer} from "mobx-react-lite";
-import classes from "./Todo.module.scss";
-import Todo from "./Todo";
+import classes from "../Todo.module.scss";
+import {Todo} from "../Todo.jsx";
 
-const TodoChilds = observer((task) => {
+export const TodoChilds = observer((task) => {
     return (<div className={classes.Childs}>
         {task.task.isChildsOpened ? task.task.childs.map((element) => {
             return <Todo key={element.id} task={element}/>;
@@ -11,4 +11,3 @@ const TodoChilds = observer((task) => {
     </div>);
 });
 
-export default TodoChilds;

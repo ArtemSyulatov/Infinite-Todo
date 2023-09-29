@@ -1,18 +1,18 @@
 import {observer} from "mobx-react-lite";
 import React, {createContext, useEffect} from "react";
 import classes from "./Todo.module.scss";
-import TaskRigthSide from "./TaskRigthSide.jsx";
-import TodoChilds from "./TodoChilds.jsx";
-import TaskLeftSide from "./TaskLeftSide.jsx";
 import {ListItemText} from "@mui/material";
+import {Icon} from "./Icon/index.js";
+import {TodoChilds} from "./Childs/index.js";
+import {Buttons} from "./Buttons/index.js";
 
-const Todo = observer(({task,force}) => {
+export const Todo = observer(({task,force}) => {
     return (
         <ListItemText  className={classes.todo}>
             <div className={classes.tasks}>
                 <div className={classes.Task}>
-                    <TaskLeftSide force={force} task={task}/>
-                    <TaskRigthSide force={force} task={task}/>
+                    <Icon force={force} task={task}/>
+                    <Buttons force={force} task={task}/>
                 </div>
                 <TodoChilds task={task}/>
             </div>
@@ -20,4 +20,3 @@ const Todo = observer(({task,force}) => {
     );
 });
 
-export default Todo;
