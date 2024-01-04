@@ -1,16 +1,24 @@
 import {action, makeObservable, observable} from "mobx";
+import {Store} from "../store";
+
+type Text = {
+    id?:number
+    childs?:TaskState[]
+    text: string;
+    title: string
+}
 
 export class TaskState {
-    id;
-    text;
-    title;
-    parent;
-    childs = [];
-    isChecked = false;
-    inputToggle = true;
-    isChildsOpened = false;
+    id: number;
+    text: string;
+    title: string;
+    parent: Store | TaskState;
+    childs: TaskState[] = [];
+    isChecked: boolean  = false;
+    inputToggle: boolean = true;
+    isChildsOpened: boolean = false;
 
-    constructor({text, title}, parent) {
+    constructor({text, title}: Text, parent: Store | TaskState) {
         this.parent = parent;
         this.id = Math.random();
         this.text = text;
@@ -37,7 +45,7 @@ export class TaskState {
         this.isChecked = !this.isChecked;
     }
 
-    addChild({text, title}) {
+    addChild({text, title}: Text) {
         this.childs.push(new TaskState({text, title}, this));
     }
 
@@ -45,7 +53,7 @@ export class TaskState {
         this.parent.removeTask(this.id);
     }
 
-    removeTask(id) {
+    removeTask(id: number) {
         this.childs = this.childs.filter((elem) => elem.id !== id);
     }
 
@@ -53,7 +61,7 @@ export class TaskState {
         this.inputToggle = !this.inputToggle;
     }
 
-    setText(text) {
+    setText(text: string): void {
         this.text = text;
     }
 
@@ -61,7 +69,7 @@ export class TaskState {
         this.isChildsOpened = !this.isChildsOpened;
     }
 
-    setTitle(title) {
+    setTitle(title: string): void {
         this.title = title
     }
 }

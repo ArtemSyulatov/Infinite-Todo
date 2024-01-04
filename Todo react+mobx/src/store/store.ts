@@ -1,16 +1,20 @@
 import {makeAutoObservable} from "mobx";
-import {TaskState} from "./TaskState/TaskState";
+import {TaskState} from "./TaskState/TaskState.js";
 import {MobXProviderContext} from "mobx-react";
 import {useContext} from "react";
 
-class Store {
-    tasks = [];
-    selectedTask;
-    taskHeight;
+
+
+
+
+export class Store {
+    tasks:TaskState[] = [];
+     selectedTask!:TaskState | null;
+     taskHeight!:number;
     constructor() {
         makeAutoObservable(this);
     }
-    addTask = (id, text, childs = []) => {
+    addTask = (id:number, text:string, childs:TaskState[] = []) => {
         this.tasks.push(
             new TaskState(
                 {
@@ -23,15 +27,15 @@ class Store {
             )
         );
     };
-    removeTask = (id) => {
+    removeTask = (id:number) => {
         this.tasks = this.tasks.filter((task) => task.id !== id);
     };
-    setSelectedTask = (task) => {
+    setSelectedTask = (task:TaskState | null) => {
         this.selectedTask = task;
     };
-    setHeight = (height) => {
+    setHeight = (height:number) => {
         this.taskHeight = height
-    }
+    };
 }
 
 const store = new Store();

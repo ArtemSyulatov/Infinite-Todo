@@ -1,31 +1,36 @@
 import {observer} from "mobx-react-lite";
-import React from "react";
 import classes from "../Todo.module.scss";
-import {useStore} from "../../../store/store.js";
+import {useStore} from "../../../store/store.ts";
 import {Button, ToggleButton} from "@mui/material";
 import {
     AiFillDelete, AiOutlineCheckCircle,
     AiOutlinePlus,
     AiOutlineSelect
 } from "react-icons/ai";
+import {TaskState} from "../../../store/TaskState/TaskState";
 
-export const Buttons = observer((props) => {
+interface ButtonsProps {
+    task?: TaskState
+    force: () => void
+}
+
+export const Buttons = observer(({task,force}:ButtonsProps) => {
     const {todo} = useStore();
     return (
         <div className={classes.rightSide}>
             <ToggleButton
                 value="check"
-                selected={props.task.isChecked}
+                selected={task!.isChecked}
                 onChange={() => {
-                    props.task.setIsChecked();
+                    task?.setIsChecked();
                 }}>
                 <AiOutlineCheckCircle/>
             </ToggleButton>
             <Button
                 onClick={(event) => {
                     event.stopPropagation();
-                    props.task.addChild({text: "", title: ""});
-                    props.force()
+                    task?.addChild({text: "", title: ""});
+                    force()
                 }}
             >
                 <AiOutlinePlus/>
@@ -33,14 +38,14 @@ export const Buttons = observer((props) => {
             <Button
                 onClick={(event) => {
                     event.stopPropagation();
-                    props.task.remove(props.id);
+                    task?.remove();
                     todo.setSelectedTask(null)
                 }}
             >
                 <AiFillDelete/>
             </Button>
             <Button className="selectBtn" onClick={() => {
-                todo.setSelectedTask(props.task)
+                todo.setSelectedTask(task)
             }}><AiOutlineSelect/>
             </Button>
         </div>

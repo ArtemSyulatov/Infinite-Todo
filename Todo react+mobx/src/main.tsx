@@ -1,11 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+import App from "./App.tsx";
 import "./index.css";
-import { spy } from "mobx";
 import { Provider } from "mobx-react";
-import store from "./store/store.js"; 
-ReactDOM.createRoot(document.getElementById("root")).render(
+import store from "./store/store";
+
+
+
+ReactDOM.createRoot(document.getElementById("root") as Element).render(
   <React.StrictMode>
   <Provider {...{todo:store}}>
     <App />

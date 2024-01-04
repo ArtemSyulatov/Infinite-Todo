@@ -1,20 +1,23 @@
 import "./App.css";
-import {useStore} from "./store/store.js";
+import {useStore} from "./store/store";
 import {observer} from "mobx-react-lite";
-import {useEffect, useRef, useState} from "react";
-import {TaskInfo} from "./components/TaskInfo/index.js";
-import {Todo} from "./components/Todo/index.js";
+import {RefObject, useEffect, useRef, useState} from "react";
+import {TaskInfo} from "./components/TaskInfo";
+import {Todo} from "./components/Todo";
+import {TaskState} from "./store/TaskState/TaskState";
 
 const App = observer(() => {
     const {todo} = useStore();
-    const [forceUpdare,setForceUpdate] = useState(false)
-    const divHeight = useRef(null)
-    const force = () =>{
+    const [forceUpdare, setForceUpdate] = useState(false)
+    const divHeight = useRef() as RefObject<HTMLDivElement>  ;
+    const force = () => {
         setForceUpdate(!forceUpdare)
     }
     useEffect(() => {
-        todo.setHeight(divHeight.current.clientHeight)
-    })
+        if (divHeight.current && divHeight.current.clientHeight){
+            todo.setHeight(divHeight.current.clientHeight)
+        }
+    },)
     return (
         <div className="App">
             <div
@@ -29,7 +32,7 @@ const App = observer(() => {
                     Add Task
                 </button>
                 <div className="Tasks" ref={divHeight}>
-                    {todo.tasks.map((task) => {
+                    {todo.tasks.map((task:TaskState) => {
                         return <Todo force={force} key={task.id} task={task}/>;
                     })}
                 </div>
