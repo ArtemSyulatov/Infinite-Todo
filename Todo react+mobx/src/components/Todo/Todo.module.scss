@@ -1,8 +1,8 @@
 .Task {
-  background-color: beige;
   padding: 20px;
   display: flex;
   align-items: center;
+  border: black 1px solid;
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 0 auto;
@@ -13,7 +13,7 @@
   }
 
   button {
-    gap:5px;
+    gap: 5px;
     margin-left: 15px;
     margin-top: 15px;
     background-color: white;

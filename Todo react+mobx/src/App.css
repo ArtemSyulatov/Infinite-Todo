@@ -1,22 +1,13 @@
 * {
     outline: none;
     border: none;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     font-family: Courier, monospace;
-}
-
-#root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
 }
 
 .main {
     width: 500px;
-    height: 500px;
-    background-color: antiquewhite;
     overflow: hidden;
 
 }
@@ -28,12 +19,14 @@
 
 .App {
     display: flex;
+    justify-content: space-evenly;
 }
 
-.tasktext {
-    background-color: antiquewhite;
+.taskText {
     width: 500px;
-    height: 500px;
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
 }
 
 textarea {
@@ -44,10 +37,10 @@ textarea {
     height: 300px;
     width: 300px;
     font-size: large;
+    border: 1px solid black;
 }
 
 p {
-    margin-left: 140px;
     background-color: transparent;
     border-bottom: 3px solid #FFF;
     color: black;
@@ -55,7 +48,6 @@ p {
     font-family: Courier, monospace;
     height: 28px;
     font-weight: bold;
-    width: 220px;
 }
 
 .addTaskBtn {
@@ -67,8 +59,26 @@ p {
     border: black 1px solid;
     cursor: pointer;
 
-
 }
 .overFlowY{
     overflow-y: scroll;
+}
+
+.containerBtn{
+    padding-top: 15px;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.headerText{
+    display: flex;
+    justify-content: center;
+}
+.TaskInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }

@@ -7,13 +7,14 @@ export const TaskInfo = observer(() => {
         return null
     }
     return (
-        <div>
-            <p style={{
+        <div className={'TaskInfo'}>
+            <h2 style={{marginBottom:'20px'}}>Selected Task</h2>
+            <div className={'headerText'}><p style={{
                 textDecoration: todo.selectedTask.isChecked ? 'line-through' : 'none',
                 opacity: todo.selectedTask.isChecked ? '0.5' : '1'
             }}
-            >{todo.selectedTask?.text}</p>
-            <textarea style={{
+            >{todo.selectedTask?.text}</p></div>
+            <textarea className={'textArea'} style={{
                 textDecoration: todo.selectedTask.isChecked ? 'line-through' : 'none',
                 opacity: todo.selectedTask.isChecked ? '0.5' : '1'
             }} value={todo.selectedTask?.title} onChange={(e) => {
