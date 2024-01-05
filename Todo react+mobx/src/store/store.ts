@@ -3,10 +3,6 @@ import {TaskState} from "./TaskState/TaskState.js";
 import {MobXProviderContext} from "mobx-react";
 import {useContext} from "react";
 
-
-
-
-
 export class Store {
     tasks:TaskState[] = [];
      selectedTask!:TaskState | null;
