@@ -18,10 +18,17 @@
 }
 
 .App {
+
+}
+.header{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.content{
     display: flex;
     justify-content: space-evenly;
 }
-
 .taskText {
     width: 500px;
     display: flex;
@@ -51,14 +58,16 @@ p {
 }
 
 .addTaskBtn {
-    width: 100px;
-    height: 25px;
-    border-radius: 10px;
+    width: 150px;
+    height: 55px;
+    border-radius: 100px;
     margin-bottom: 10px;
     margin-top: 10px;
     border: black 1px solid;
     cursor: pointer;
-
+    font-family: Courier, monospace;
+    font-weight: bold;
+    font-size: 17px;
 }
 .overFlowY{
     overflow-y: scroll;

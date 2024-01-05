@@ -5,6 +5,7 @@ import {useState} from "react";
 import {TaskInfo} from "./components/TaskInfo";
 import {Todo} from "./components/Todo";
 import {TaskState} from "./store/TaskState/TaskState";
+import {Header} from "./components/Header/Header";
 
 const App = observer(() => {
     const {todo} = useStore();
@@ -14,9 +15,11 @@ const App = observer(() => {
     }
     return (
         <div className="App">
+            <Header/>
+            <div className={'content'}>
             <div
                 className={`main`}>
-                <div className={'containerBtn'}><p>Infinite TodoList</p>
+                <div className={'containerBtn'}>
                     <button
                         className="addTaskBtn"
                         onClick={() => {
@@ -35,6 +38,7 @@ const App = observer(() => {
             </div>
             <div className="taskText">
                 <TaskInfo/>
+            </div>
             </div>
         </div>
     );
