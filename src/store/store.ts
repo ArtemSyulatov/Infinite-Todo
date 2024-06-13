@@ -29,9 +29,6 @@ export class Store {
   setSelectedTask = (task: TaskState | null) => {
     this.selectedTask = task;
   };
-  // setHeight = (height:number) => {
-  //     this.taskHeight = height
-  // };
 }
 
 const store = new Store();
